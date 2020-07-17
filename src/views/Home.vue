@@ -1,14 +1,9 @@
 <template>
-  <div class="home">
-    <PageHeader />
-  </div>
+  <div class="home">HOME STUFF</div>
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader'
-
 export default {
-  name: 'Home',
-  components: { PageHeader }
+  name: 'Home'
 }
 </script>

@@ -49,6 +49,11 @@ export default {
 .nav-brand {
   display: flex;
   align-items: center;
+
+  .app-logo {
+    width: 5rem;
+    text-align: center;
+  }
 }
 
 .search-container {

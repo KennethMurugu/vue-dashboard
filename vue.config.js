@@ -1,6 +1,5 @@
 const scssPrependData = `
-@import "@/assets/style/_vars.scss"; 
-@import "@/assets/style/spacing.scss";
+@import "@/assets/style/_vars.scss";
 `
 
 module.exports = {
