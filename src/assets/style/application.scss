@@ -26,3 +26,11 @@ body {
 input {
   font-family: inherit;
 }
+
+a {
+  color: #0b67a5;
+
+  &:hover {
+    color: #249beb;
+  }
+}

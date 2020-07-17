@@ -9,9 +9,10 @@ import {
   faChartLine,
   faUser,
   faMoneyBill,
-  faCog
+  faCog,
+  faShoppingCart
 } from '@fortawesome/free-solid-svg-icons'
-// import {  } from '@fortawesome/free-regular-svg-icons'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export function faInit() {
   library.add({
@@ -22,7 +23,11 @@ export function faInit() {
     faChartLine,
     faUser,
     faMoneyBill,
-    faCog
+    faCog,
+    faShoppingCart,
+    // Brands
+    faGithub,
+    faTwitter
   })
 
   Vue.component('fa-icon', FontAwesomeIcon)

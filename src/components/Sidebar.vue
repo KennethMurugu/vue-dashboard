@@ -58,6 +58,7 @@ export default {
   box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.08);
   height: calc(100vh - 5rem);
   width: 7rem;
+  top: 5rem;
   // background-color: #fff;
 }
 
@@ -72,7 +73,7 @@ export default {
     text-align: center;
     position: relative;
     cursor: pointer;
-    border-bottom: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid $light-black;
 
     .icon {
       font-size: 1.75rem;

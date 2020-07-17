@@ -2,7 +2,7 @@
   <div id="app">
     <PageHeader />
     <Sidebar />
-    <main class="section-main pa-3">
+    <main class="section-main py-6 px-8 container-lg">
       <router-view />
     </main>
   </div>
@@ -20,5 +20,14 @@ export default {
 <style lang="scss" scoped>
 .section-main {
   margin-left: 7rem;
+  // margin-top: 5rem;
+}
+
+@media screen and (min-width: 1400px) {
+  .section-main {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>
