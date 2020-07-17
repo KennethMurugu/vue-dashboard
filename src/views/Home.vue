@@ -21,16 +21,41 @@
         class="item"
       />
     </div>
+
+    <div class="sales-row">
+      <Card class="this-year-sales-card">
+        <!-- <h2>This Year vs Previous Year Sales</h2> -->
+        <apexchart
+          width="100%"
+          height="300"
+          :options="thisYearSalesChart.chartOptions"
+          :series="thisYearSalesChart.series"
+        ></apexchart>
+      </Card>
+
+      <Card class="country-sales-card">
+        <!-- <h2>Sales by Country</h2> -->
+        <apexchart
+          width="100%"
+          height="300"
+          :options="salesByCountryChart.chartOptions"
+          :series="salesByCountryChart.series"
+        ></apexchart>
+      </Card>
+    </div>
   </div>
 </template>
 
 <script>
 import MainStatCounter from '@/components/MainStatCounter'
+import Card from '@/components/Card'
+import { thisYearSalesChart, salesByCountryChart } from '@/charts'
 
 export default {
   name: 'Home',
   components: {
-    MainStatCounter
+    MainStatCounter,
+    Card
   },
   data() {
     return {
@@ -55,7 +80,9 @@ export default {
           count: 'KSH185,000',
           icon: 'user'
         }
-      ]
+      ],
+      thisYearSalesChart,
+      salesByCountryChart
     }
   }
 }
@@ -83,7 +110,29 @@ export default {
   }
 }
 
+.sales-row {
+  display: flex;
+  flex-direction: column;
+
+  .this-year-sales-card,
+  .country-sales-card {
+    width: 100%;
+  }
+
+  .this-year-sales-card {
+    margin-bottom: 1rem;
+  }
+
+  .country-sales-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+/*======= Responsive styles ========== */
 @media screen and (min-width: $break-sm) {
+  // 576px
   .main-stats-row .item {
     width: 100%;
     margin-bottom: 1rem;
@@ -91,9 +140,24 @@ export default {
 }
 
 @media screen and (min-width: $break-md) {
+  // 992px
   .main-stats-row .item {
     width: calc(50% - 1rem);
     margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .sales-row {
+    flex-direction: row;
+
+    .this-year-sales-card {
+      margin-right: 1rem;
+      width: calc(60% - 1rem);
+    }
+    .country-sales-card {
+      width: 40%;
+    }
   }
 }
 
