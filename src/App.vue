@@ -20,12 +20,18 @@ export default {
 <style lang="scss" scoped>
 .section-main {
   margin-left: 7rem;
-  // margin-top: 5rem;
 }
 
 @media screen and (min-width: 1400px) {
   .section-main {
     max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section-main {
     margin-left: auto;
     margin-right: auto;
   }

@@ -39,7 +39,7 @@ export default {
 
 .stat-icon {
   margin-right: 1rem;
-  color: lighten($color-primary, 40%);
+  color: lighten($color-primary, 20%);
   font-size: 2.5rem;
   width: 50px;
 }
