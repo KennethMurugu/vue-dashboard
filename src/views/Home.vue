@@ -4,12 +4,12 @@
       Vue Sales Dashboard
       <small class="by">
         <span class="mr-3">| by Kenneth Kimotho</span>
-        <router-link to="https://github.com/KennethMurugu" class="mr-3">
+        <a href="https://github.com/KennethMurugu" target="_blank" class="mr-3">
           <fa-icon :icon="['fab', 'github']"></fa-icon>
-        </router-link>
-        <router-link to="https://twitter.com/kendotkim">
+        </a>
+        <a href="https://twitter.com/kendotkim" target="_blank">
           <fa-icon :icon="['fab', 'twitter']"></fa-icon>
-        </router-link>
+        </a>
       </small>
     </h1>
 
@@ -270,7 +270,7 @@ export default {
   .product-list {
     .item {
       display: grid;
-      grid-template-columns: 80px auto 115px;
+      grid-template-columns: 80px auto auto;
       gap: 1rem;
       align-items: center;
       img {
