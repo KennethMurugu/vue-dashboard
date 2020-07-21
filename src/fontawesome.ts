@@ -10,7 +10,8 @@ import {
   faUser,
   faMoneyBill,
   faCog,
-  faShoppingCart
+  faShoppingCart,
+  faArrowRight
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -25,6 +26,7 @@ export function faInit() {
     faMoneyBill,
     faCog,
     faShoppingCart,
+    faArrowRight,
     // Brands
     faGithub,
     faTwitter

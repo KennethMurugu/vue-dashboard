@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="$store.state.isSidebarShowing ? 'show' : 'hide'">
     <ul class="navigation-list">
       <li
         class="item"
@@ -105,7 +105,16 @@ export default {
 
 @media screen and (max-width: 650px) {
   .sidebar {
-    transform: translateX(-100%);
+    background-color: #fff;
+    z-index: 9999;
+    transition: 0.2s ease;
+
+    &.hide {
+      transform: translateX(-100%);
+    }
+    &.show {
+      transform: translateX(0%);
+    }
   }
 }
 </style>

@@ -175,12 +175,6 @@ export default {
           price: 'KSH 1000',
           description: 'Lorem ipsum dolor sit amet consectetur'
         }
-        // {
-        //   img: product4,
-        //   name: 'Headphones 4',
-        //   price: 'KSH 5500',
-        //   description: 'Lorem ipsum dolor sit amet consectetur'
-        // }
       ]
     }
   }
@@ -307,7 +301,7 @@ export default {
 }
 
 @media screen and (min-width: $break-md) {
-  // 992px
+  // 768px
   .main-stats-row .item {
     width: calc(50% - 1rem);
     margin-bottom: 1rem;
@@ -334,6 +328,22 @@ export default {
 @media screen and (min-width: 1300px) {
   .main-stats-row .item {
     width: calc(25% - 1rem);
+  }
+}
+
+@media screen and (max-width: $break-md) {
+  // 768px
+  .top-selling-products {
+    width: 100%;
+    .product-list {
+      .item {
+        grid-template-columns: 100px auto;
+
+        .btn-view-product {
+          grid-column: span 2;
+        }
+      }
+    }
   }
 }
 </style>

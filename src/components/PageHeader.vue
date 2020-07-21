@@ -1,12 +1,22 @@
 <template>
   <div class="page-header py-3 px-6">
     <div class="nav-brand">
+      <div
+        class="hamburger-menu mr-6"
+        :class="
+          $store.state.isSidebarShowing ? 'sidebar-open' : 'sidebar-closed'
+        "
+        @click="toggleSidebar()"
+      >
+        <fa-icon
+          class="fa-lg icon-sidebar-open"
+          icon="arrow-right"
+          v-if="$store.state.isSidebarShowing"
+        ></fa-icon>
+        <fa-icon class="fa-lg icon-sidebar-closed" icon="bars" v-else></fa-icon>
+      </div>
       <div class="app-logo mr-6">
         <p class="ma-0">V</p>
-      </div>
-
-      <div class="hamburger-menu mr-6">
-        <fa-icon class="fa-lg" icon="bars"></fa-icon>
       </div>
     </div>
 
@@ -32,7 +42,12 @@
 
 <script>
 export default {
-  name: 'PageHeader'
+  name: 'PageHeader',
+  methods: {
+    toggleSidebar() {
+      this.$store.state.isSidebarShowing = !this.$store.state.isSidebarShowing
+    }
+  }
 }
 </script>
 
@@ -56,6 +71,18 @@ export default {
   .app-logo {
     width: 5rem;
     text-align: center;
+  }
+}
+
+.hamburger-menu {
+  display: none;
+  transition: 0.3s ease;
+
+  &.sidebar-open {
+    transform: rotateZ(-180deg);
+  }
+  &.sidebar-closed {
+    transform: rotateZ(0);
   }
 }
 
@@ -96,6 +123,31 @@ export default {
 
   img {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .nav-brand .app-logo {
+    width: 3rem;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .search-container {
+    width: 30px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    input {
+      display: none;
+    }
+
+    .icon {
+      position: relative;
+      right: 0;
+      margin: 0 auto;
+    }
   }
 }
 </style>
