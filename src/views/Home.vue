@@ -88,7 +88,7 @@
         </Card>
       </div>
 
-      <div class="top-selling-products">
+      <div class="top-selling-products mb-6">
         <Card>
           <template v-slot:title>Top Selling Products</template>
 
@@ -111,6 +111,44 @@
           </div>
         </Card>
       </div>
+    </div>
+
+    <div class="recent-orders mb-6">
+      <Card>
+        <template v-slot:title>Recent Orders</template>
+        <div class="responsive-container">
+          <table class="table">
+            <thead class="headers">
+              <th>Order Id</th>
+              <th>Buyer</th>
+              <th>Product</th>
+              <th>Status</th>
+              <th>Shipping Cost</th>
+              <th>Date</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr v-for="(order, index) in recentOrders" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ order.buyer }}</td>
+                <td>
+                  <img :src="order.product" class="product-img" />
+                </td>
+                <td>
+                  <p class="product-status" :class="productStatus[0]">
+                    {{ productStatus[0] }}
+                  </p>
+                </td>
+                <td>{{ order.shipping }}</td>
+                <td>{{ order.date }}</td>
+                <td>
+                  <button class="btn primary-inv">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </Card>
     </div>
   </div>
 </template>
@@ -175,7 +213,38 @@ export default {
           price: 'KSH 1000',
           description: 'Lorem ipsum dolor sit amet consectetur'
         }
-      ]
+      ],
+      recentOrders: [
+        {
+          buyer: 'Jane',
+          product: product1,
+          status: 0,
+          shipping: 'KSH100',
+          date: '2020-07-10'
+        },
+        {
+          buyer: 'Jane',
+          product: product2,
+          status: 1,
+          shipping: 'KSH100',
+          date: '2020-07-10'
+        },
+        {
+          buyer: 'Jane',
+          product: product3,
+          status: 2,
+          shipping: 'KSH100',
+          date: '2020-07-10'
+        },
+        {
+          buyer: 'Jane',
+          product: product4,
+          status: 3,
+          shipping: 'KSH100',
+          date: '2020-07-10'
+        }
+      ],
+      productStatus: ['pending', 'processing', 'shipped', 'delivered']
     }
   }
 }
@@ -290,6 +359,97 @@ export default {
     }
   }
 }
+
+.recent-orders {
+  .responsive-container {
+    overflow-x: auto;
+  }
+  .table {
+    min-width: 750px;
+    width: 100%;
+    border-spacing: 0.75rem;
+    .headers {
+      th {
+        text-align: left;
+        // padding: 0.5rem 0;
+      }
+    }
+
+    .product-img {
+      width: 100px;
+    }
+
+    .product-status {
+      border: 1px solid #fff;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.7em;
+      border-radius: 50px;
+      text-align: center;
+      text-transform: uppercase;
+
+      &.pending {
+        border-color: purple;
+        color: purple;
+      }
+      &.processing {
+        border-color: blue;
+        color: blue;
+      }
+      &.shipped {
+        border-color: orange;
+        color: orange;
+      }
+      &.delivered {
+        border-color: green;
+        color: green;
+      }
+    }
+  }
+}
+
+// .recent-orders {
+//   .list-headers,
+//   .list .item {
+//     display: grid;
+//     grid-template-columns: 75px 100px 150px 100px 120px 120px 85px;
+//     gap: 1rem;
+//     align-items: center;
+//   }
+
+//   .list .item {
+//     font-size: 0.9rem;
+
+//     .product-img {
+//       width: 100px;
+//     }
+
+//     .product-status {
+//       border: 1px solid #fff;
+//       padding: 0.25rem 0.9rem;
+//       font-size: 0.7em;
+//       border-radius: 50px;
+//       text-align: center;
+//       text-transform: uppercase;
+
+//       &.pending {
+//         border-color: purple;
+//         color: purple;
+//       }
+//       &.processing {
+//         border-color: blue;
+//         color: blue;
+//       }
+//       &.shipped {
+//         border-color: orange;
+//         color: orange;
+//       }
+//       &.delivered {
+//         border-color: green;
+//         color: green;
+//       }
+//     }
+//   }
+// }
 
 /*======= Responsive styles ========== */
 @media screen and (min-width: $break-sm) {
